@@ -38,7 +38,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
+        /* dd($data); */
         $newPost = Post::create($data);
         $newPost->save();
         return redirect()->route('admin.posts.index');
@@ -63,7 +63,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $posts = Post::findOrFail($id);
+        return view("admin.posts.edit", compact("posts"));
     }
 
     /**
@@ -73,9 +74,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $posts)
     {
-        //
+        $posts->update($request->all());
+        return redirect()->route("admin.posts.show", $posts->id);
     }
 
     /**
@@ -84,8 +86,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $posts)
     {
-        //
+        $posts->delete();
+        return redirect()->route("admin.posts.index");
     }
 }
