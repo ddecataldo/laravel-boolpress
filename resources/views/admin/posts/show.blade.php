@@ -1,2 +1,6 @@
-<h1>Dettaglio Fumetto</h1>
+@extends('layouts.admin')
+
+@section('content')
+<h1>Dettaglio Articolo</h1>
 <h2>Articolo: {{$posts->title}}</h2>
+@endsection
