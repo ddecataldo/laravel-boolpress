@@ -8,11 +8,11 @@ class Post extends Model
 {
     protected $fillable = [
         'title', 
-        'description', 
-        'thumb', 
+        'content', 
         'author', 
         'category', 
-        'published',
+        'published', 
+        'imageUrl',
     ];
     public $timestamps = false;
 }
