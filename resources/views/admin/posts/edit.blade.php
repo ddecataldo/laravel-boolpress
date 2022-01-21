@@ -12,7 +12,7 @@
     </div>
     <div class="form-group">
         <label for="inputDescription">Descrizione</label>
-        <textarea value="{{old('content') ?? $posts->content}}" class="form-control" id="inputDescription" name="content" rows="3"></textarea>
+        <textarea name="content" class="form-control" id="inputDescription" rows="3">{{$posts->content}}</textarea>
     </div>
     <div class="form-group">
         <label for="inputThumb">Thumb</label>
