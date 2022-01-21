@@ -7,27 +7,57 @@
     @csrf
     <div class="form-group">
         <label for="inputTitle">Title</label>
-        <input type="text" class="form-control" name="title" id="inputTitle" placeholder="Titolo articolo">
+        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="inputTitle" placeholder="Titolo articolo">
+        @error('title')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="inputDescription">Descrizione</label>
-        <textarea class="form-control" id="inputDescription" name="content" rows="3"></textarea>
+        <textarea class="form-control @error('content') is-invalid @enderror" id="inputDescription" name="content" rows="3"></textarea>
+        @error('content')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
-        <label for="inputThumb">Thumb</label>
-        <input type="text" class="form-control" id="inputThumb" name="imageUrl" placeholder="Url image">
+        <label for="inputThumb">Immagine</label>
+        <input type="text" class="form-control @error('imageUrl') is-invalid @enderror" id="inputThumb" name="imageUrl" placeholder="Url image">
+        @error('imageUrl')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
-        <label for="inputAuthor">Author</label>
-        <input type="text" class="form-control" id="inputAuthor" name="author" placeholder="Autore articolo">
+        <label for="inputAuthor">Autore</label>
+        <input type="text" class="form-control @error('author') is-invalid @enderror" id="inputAuthor" name="author" placeholder="Autore articolo">
+        @error('author')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="inputCategory">Cateogoria</label>
-        <input type="text" class="form-control" id="inputCategory" name="category" placeholder="Nome categoria">
+        <input type="text" class="form-control @error('author') is-invalid @enderror" id="inputCategory" name="category" placeholder="Nome categoria">
+        @error('category')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
     <div class="form-group">
         <label for="inputPublished">Pubblicato</label>
-        <input type="text" class="form-control" id="inputPublished" name="published" placeholder="Pubblicato">
+        <input type="text" class="form-control @error('published') is-invalid @enderror" id="inputPublished" name="published" placeholder="Pubblicato">
+        @error('published')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+        @enderror
     </div>
 
     <button type="submit" class="btn btn-primary">Pubblica</button>
