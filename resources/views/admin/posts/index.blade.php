@@ -4,6 +4,12 @@
 
 <div class="container-fluid">
     <h1>Lista Articoli</h1>
+    <a href="{{route('admin.posts.create')}}" class="btn btn-primary">Crea articolo</a>
+    @if(session("msg"))
+        <div class="alert alert-success" role="alert">
+            {{session("msg")}}
+        </div>
+    @endif
     <ul class="list-group">
         @foreach ($posts as $singlePost)
             <li class="list-group-item d-flex justify-content-between align-items-center">
