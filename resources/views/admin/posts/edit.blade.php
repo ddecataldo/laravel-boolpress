@@ -31,7 +31,7 @@
         <input type="text" value="{{old('published') ?? $posts->published}}" class="form-control" id="inputPublished" name="published" placeholder="Pubblicato">
     </div>
 
-    <a href="{{ route('admin.posts.index') }}" class="btn btn-outline-primary">Indietro</a>
+    <a href="{{ route('admin.posts.index') }}" class="btn btn-outline-primary" type="reset">Indietro</a>
     <button type="submit" class="btn btn-primary">Modifica</button>
 
 </form>
