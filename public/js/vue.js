@@ -99,12 +99,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "App",
   data: function data() {
     return {
-      msgGuests: "Pagina Guests"
+      msgGuests: "Pagina Guests",
+      postsList: []
     };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    window.axios.get("/api/posts").then(function (resp) {
+      _this.postsList = resp.data;
+    });
   }
 });
 
@@ -593,7 +622,53 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", [_vm._v(_vm._s(_vm.msgGuests))])
+  return _c("div", [
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("div", { staticClass: "col-md-12 col-sm-12 col-xs-12 mb-5" }, [
+            _c("h1", [_vm._v(_vm._s(_vm.msgGuests))]),
+          ]),
+          _vm._v(" "),
+          _vm._l(_vm.postsList, function (post) {
+            return _c(
+              "div",
+              { key: post.id, staticClass: "col-md-6 col-xs-12 mb-4" },
+              [
+                _c("div", { staticClass: "card-deck" }, [
+                  _c("div", { staticClass: "card" }, [
+                    _c("img", {
+                      staticClass: "card-img-top",
+                      attrs: { alt: "Card image cap" },
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "card-body" }, [
+                      _c("h5", { staticClass: "card-title" }, [
+                        _vm._v(_vm._s(post.title)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _vm._v(_vm._s(post.content)),
+                      ]),
+                      _vm._v(" "),
+                      _c("p", { staticClass: "card-text" }, [
+                        _c("small", { staticClass: "text-muted" }, [
+                          _vm._v(_vm._s(post.author)),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ]
+            )
+          }),
+        ],
+        2
+      ),
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
