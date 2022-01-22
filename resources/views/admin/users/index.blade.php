@@ -23,11 +23,6 @@
                 <p class="mb-0">{{$singleUser->role}}</p>
                 <div class="d-flex" style="gap:5px;">
                     <a href="{{ route('admin.users.edit', $singleUser->id) }}" class="btn btn-primary"> Modifica </a>
-                    <form action="{{ route('admin.users.destroy', $singleUser->id) }}" method="post">
-                        @csrf
-                        @method('delete')
-                        <button type="submit" class="btn btn-danger">Elimina</button>
-                    </form>
                 </div>
             </li>
         @endforeach
