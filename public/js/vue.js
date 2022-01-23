@@ -641,11 +641,11 @@ var render = function () {
                   _c("div", { staticClass: "card" }, [
                     _c("img", {
                       staticClass: "card-img-top",
-                      attrs: { alt: "Card image cap" },
+                      attrs: { src: post.imageUrl, alt: "Card image cap" },
                     }),
                     _vm._v(" "),
                     _c("div", { staticClass: "card-body" }, [
-                      _c("h5", { staticClass: "card-title" }, [
+                      _c("h3", { staticClass: "card-title" }, [
                         _vm._v(_vm._s(post.title)),
                       ]),
                       _vm._v(" "),
