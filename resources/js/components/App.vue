@@ -8,9 +8,9 @@
             <div class="col-md-6 col-xs-12 mb-4" v-for="post in postsList" :key="post.id">
                 <div class="card-deck">
                     <div class="card">
-                        <img class="card-img-top" alt="Card image cap">
+                        <img class="card-img-top" :src="post.imageUrl" alt="Card image cap">
                         <div class="card-body">
-                        <h5 class="card-title">{{ post.title }}</h5>
+                        <h3 class="card-title">{{ post.title }}</h3>
                         <p class="card-text">{{ post.content }}</p>
                         <p class="card-text"><small class="text-muted">{{ post.author }}</small></p>
                         </div>
