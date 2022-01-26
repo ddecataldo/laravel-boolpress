@@ -649,9 +649,10 @@ var render = function () {
                         _vm._v(_vm._s(post.title)),
                       ]),
                       _vm._v(" "),
-                      _c("p", { staticClass: "card-text" }, [
-                        _vm._v(_vm._s(post.content)),
-                      ]),
+                      _c("p", {
+                        staticClass: "card-text",
+                        domProps: { innerHTML: _vm._s(post.content) },
+                      }),
                       _vm._v(" "),
                       _c("p", { staticClass: "card-text" }, [
                         _c("small", { staticClass: "text-muted" }, [

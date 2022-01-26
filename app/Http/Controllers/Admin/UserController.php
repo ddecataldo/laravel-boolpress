@@ -77,8 +77,10 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $role = Auth::user()->role;
+        $redirect = $role === "admin" ? "admin.users.index" : "admin.index";
         $user->update($request->all());
-        return redirect()->route('admin.users.index', $user->id)->with("msg", "Utente aggiornato correttamente");
+        return redirect()->route($redirect , $user->id)->with("msg", "Utente aggiornato correttamente");
     }
 
     /**

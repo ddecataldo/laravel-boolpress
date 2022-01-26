@@ -11,7 +11,7 @@
                         <img class="card-img-top" :src="post.imageUrl" alt="Card image cap">
                         <div class="card-body">
                         <h3 class="card-title">{{ post.title }}</h3>
-                        <p class="card-text">{{ post.content }}</p>
+                        <p class="card-text" v-html="post.content"></p>
                         <p class="card-text"><small class="text-muted">{{ post.author }}</small></p>
                         </div>
                     </div>

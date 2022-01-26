@@ -15,11 +15,11 @@ class AddAuthorIdToPostsTable extends Migration
     {
         Schema::table('posts', function (Blueprint $table) {
             //
-            $table->unsignedBigInteger('author_id');
+            $table->unsignedBigInteger('author_id'); // Andiamo a creare una colonna che si chiama author_id dentro posts
 
-            $table->foreign('author_id') /* Nome Colonna Foreign Key */
-                  ->references('id') /* Nome referenze */
-                  ->on('users'); /* Nome Colonna dove trova la referenza */
+            $table->foreign('author_id') // La tabella posts avrà author_id come Foreign Key
+                  ->references('id') // La Foreign Key punta alla colonna id->
+                  ->on('users'); /* ->della tabella user */
         });
     }
 

@@ -43,12 +43,12 @@
     </div>
     <div class="form-group">
         <label for="inputCategory">Cateogoria</label>
+        <select class="form-control" name="category_id" id="">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
+            @endforeach
+        </select>
         <input type="text" class="form-control @error('author') is-invalid @enderror" id="inputCategory" name="category" placeholder="Nome categoria">
-        @error('category')
-            <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-            </span>
-        @enderror
     </div>
     <div class="form-group">
         <label for="inputPublished">Pubblicato</label>

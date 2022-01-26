@@ -34,6 +34,45 @@
   </div>
 
   <div class="form-group">
+    <label class="form-label">Telefono</label>
+    <input id="phone" type="text"
+      class="form-control @error('phone') is-invalid @enderror" name="phone"
+      value="{{ $user->phone }}" required autocomplete="phone">
+
+    @error('phone')
+    <span class="invalid-feedback" role="alert">
+      <strong>{{ $message }}</strong>
+    </span>
+    @enderror
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Indirizzo</label>
+    <input id="address" type="text"
+      class="form-control @error('address') is-invalid @enderror" name="address"
+      value="{{ $user->address }}" required autocomplete="address">
+
+    @error('address')
+    <span class="invalid-feedback" role="alert">
+      <strong>{{ $message }}</strong>
+    </span>
+    @enderror
+  </div>
+
+  <div class="form-group">
+    <label class="form-label">Cover</label>
+    <input id="address" type="text"
+      class="form-control @error('cover') is-invalid @enderror" name="cover"
+      value="{{ $user->cover }}" required autocomplete="cover">
+
+    @error('cover')
+    <span class="invalid-feedback" role="alert">
+      <strong>{{ $message }}</strong>
+    </span>
+    @enderror
+  </div>
+
+  <div class="form-group">
     <label class="form-label">Ruolo</label>
 
     @if(Auth::user()->role === "admin")

@@ -24,7 +24,12 @@
     </div>
     <div class="form-group">
         <label for="inputCategory">Cateogoria</label>
-        <input type="text" value="{{old('category') ?? $posts->category}}" class="form-control" id="inputCategory" name="category" placeholder="Nome categoria">
+        {{-- <input type="text" value="{{old('category') ?? $posts->category}}" class="form-control" id="inputCategory" name="category" placeholder="Nome categoria"> --}}
+        <select class="form-control" name="category_id" id="">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}" @if($category->id === $posts->category_id) selected @endif>{{ $category->name }}</option>
+            @endforeach
+        </select>
     </div>
     <div class="form-group">
         <label for="inputPublished">Pubblicato</label>
