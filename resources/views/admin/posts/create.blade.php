@@ -32,7 +32,7 @@
             </span>
         @enderror
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="inputAuthor">Autore</label>
         <input type="text" class="form-control @error('author') is-invalid @enderror" id="inputAuthor" name="author" placeholder="Autore articolo">
         @error('author')
@@ -40,7 +40,7 @@
                 <strong>{{ $message }}</strong>
             </span>
         @enderror
-    </div>
+    </div> --}}
     <div class="form-group">
         <label for="inputCategory">Cateogoria</label>
         <select class="form-control" name="category_id" id="">

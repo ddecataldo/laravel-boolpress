@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with("user")->get();
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -47,14 +48,14 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|unique:posts|max:255',
             'content' => 'required',
-            'author' => 'required|max:255',
+            'author' => 'max:255',
             'published' => 'required|boolean',
             'imageUrl' => 'required',
         ]);
 
         $data = $request->all();
-        /* dd($data); */
         $newPost = Post::create($data);
+        $newPost->author_id = Auth::user()->id;
         $newPost->save();
         return redirect()->route('admin.posts.index')->with('msg', 'Articolo creato correttamente');
     }

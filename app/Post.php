@@ -24,7 +24,6 @@ class Post extends Model
     public function user(){ // uso il plurale perchè indica tutti i post di un utente
         return $this->belongsTo("App\User", "author_id");
         // ForeignKey "author_id"
-        // ownerKey "id"
     }
 
 }
