@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
+use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,9 +30,11 @@ class PostController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $tags = Tag::all();
 
         return view('admin.posts.create', [
-            "categories" => $categories
+            "categories" => $categories,
+            "tags" => $tags
         ]);
         
     }
@@ -80,10 +83,13 @@ class PostController extends Controller
     public function edit($id)
     {
         $categories = Category::all();
+        $tags = Tag::all();
+
         $posts = Post::findOrFail($id);
         return view("admin.posts.edit", [
             "posts" => $posts,
-            "categories" => $categories
+            "categories" => $categories,
+            "tags" => $tags
         ]);
     }
 
@@ -99,6 +105,16 @@ class PostController extends Controller
         /* dd($id); */
         /* $post = Post::findOrFail($id); */
         $post->update($request->all());
+        $icomingTags = $request->only("tags");
+
+        $post->tags()->sync($icomingTags["tags"]);
+
+        /* $post->tags()->detach();
+
+        foreach($icomingTags as $tag){
+            $post->tags()->attach($tag);
+        } */
+
         return redirect()->route('admin.posts.show', $post->id);
     }
 

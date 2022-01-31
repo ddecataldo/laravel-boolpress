@@ -32,6 +32,15 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="inputTag">Tags</label>
+        <select class="form-control" name="tags[]" id="" multiple>
+            @foreach ($tags as $tag)
+                <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+            @endforeach
+        </select>
+    </div>
+
+    <div class="form-group">
         <label for="inputPublished">Pubblicato</label>
         <input type="text" value="{{old('published') ?? $posts->published}}" class="form-control" id="inputPublished" name="published" placeholder="Pubblicato">
     </div>
