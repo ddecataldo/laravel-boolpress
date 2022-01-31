@@ -36,8 +36,8 @@
   <div class="form-group">
     <label class="form-label">Telefono</label>
     <input id="phone" type="text"
-      class="form-control @error('phone') is-invalid @enderror" name="phone"
-      value="{{ $user->phone }}" required autocomplete="phone">
+      class="form-control @error('phone') is-invalid @enderror" name="userInfo[phone]"
+      value="{{  $user->userInfo ? $user->userInfo->phone : '' }}" required autocomplete="phone">
 
     @error('phone')
     <span class="invalid-feedback" role="alert">
@@ -49,8 +49,8 @@
   <div class="form-group">
     <label class="form-label">Indirizzo</label>
     <input id="address" type="text"
-      class="form-control @error('address') is-invalid @enderror" name="address"
-      value="{{ $user->address }}" required autocomplete="address">
+      class="form-control @error('address') is-invalid @enderror" name="userInfo[address]"
+      value="{{ $user->userInfo ? $user->userInfo->address : ''  }}" required autocomplete="address">
 
     @error('address')
     <span class="invalid-feedback" role="alert">
@@ -62,8 +62,8 @@
   <div class="form-group">
     <label class="form-label">Cover</label>
     <input id="address" type="text"
-      class="form-control @error('cover') is-invalid @enderror" name="cover"
-      value="{{ $user->cover }}" required autocomplete="cover">
+      class="form-control @error('cover') is-invalid @enderror" name="userInfo[cover]"
+      value="{{ $user->userInfo ? $user->userInfo->cover : '' }}" required autocomplete="cover">
 
     @error('cover')
     <span class="invalid-feedback" role="alert">

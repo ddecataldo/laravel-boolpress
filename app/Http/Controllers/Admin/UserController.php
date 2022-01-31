@@ -22,6 +22,7 @@ class UserController extends Controller
             throw new HttpException(401, "Permessi non sufficenti");
         }
         $users = User::all();
+        /* dd($users); */
         return view('admin.users.index', compact('users'));
     }
 
@@ -79,7 +80,11 @@ class UserController extends Controller
     {
         $role = Auth::user()->role;
         $redirect = $role === "admin" ? "admin.users.index" : "admin.index";
-        $user->update($request->all());
+        /* $user->update($request->all()); */
+        $data = $request->all();
+
+        $user->update($data);
+        $user->userInfo()->updateOrCreate(["user_id" => $user->id], $data["userInfo"]);
         return redirect()->route($redirect , $user->id)->with("msg", "Utente aggiornato correttamente");
     }
 

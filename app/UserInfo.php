@@ -11,6 +11,8 @@ class UserInfo extends Model
         'phone', 'address', 'cover',
     ];
 
+    protected $table = 'users_info';
+
     /** 
      * Relazione 1 a 1
      * Tabella Secondaria

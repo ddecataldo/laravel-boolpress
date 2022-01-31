@@ -18,10 +18,10 @@
         <label for="inputThumb">Thumb</label>
         <input type="text" value="{{old('imageUrl') ?? $posts->imageUrl}}" class="form-control" id="inputThumb" name="imageUrl" placeholder="Url image">
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="inputAuthor">Author</label>
         <input type="text" value="{{old('author') ?? $posts->author}}" class="form-control" id="inputAuthor" name="author" placeholder="Autore articolo">
-    </div>
+    </div> --}}
     <div class="form-group">
         <label for="inputCategory">Cateogoria</label>
         {{-- <input type="text" value="{{old('category') ?? $posts->category}}" class="form-control" id="inputCategory" name="category" placeholder="Nome categoria"> --}}
